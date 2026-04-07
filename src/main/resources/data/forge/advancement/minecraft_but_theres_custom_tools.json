@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "id": "forge:ender_sword"
+    },
+    "title": "Minecraft, but there's custom tools",
+    "description": "Kaufe dir dein erstes stück custom gear",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:story/root",
+  "criteria": {
+    "kill_player": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:player"
+        }
+      }
+    }
+  }
+}
