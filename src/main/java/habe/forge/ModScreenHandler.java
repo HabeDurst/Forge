@@ -27,9 +27,13 @@ public class ModScreenHandler {
             ItemStack filler = new ItemStack(Items.GRAY_STAINED_GLASS_PANE);
             filler.set(DataComponents.CUSTOM_NAME, Component.literal(" "));
             for (int i = 0; i < 54; i++) inv.setItem(i, filler.copy());
+            inv.setItem(15, ModItems.createDisplayInfo());
             inv.setItem(1, ModItems.createDisplayResonator());
-            inv.setItem(3, ModItems.createStoneBreaker());
-            inv.setItem(5, ModItems.createEarthShard());
+            inv.setItem(3, ModItems.createDisplayFuryFang());
+            inv.setItem(5, ModItems.createDisplayEclipse());
+
+            inv.setItem(7, ModItems.createDisplayStoneBreaker());
+            inv.setItem(10, ModItems.createDisplayEarthShard());
 
             player.openMenu(new net.minecraft.world.MenuProvider() {
                 public Component getDisplayName() {

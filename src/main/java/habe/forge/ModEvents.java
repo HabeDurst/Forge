@@ -9,11 +9,14 @@ public class ModEvents {
     public static void initialize() {
 
         ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register(((world, entity, killedEntity, damageSource) -> {
-            if (entity instanceof ServerPlayer player && killedEntity instanceof ServerPlayer) {
-                Database.addPoints(player.getUUID().toString(), player.getName().getString(), 1);
-                player.sendSystemMessage(Component.literal("YOYOYO DU GEILER WICHS BROKEN DAS WAR EPPPPPIC HIER SIND 1 PUUIUUUUUNKTEEEEEEEEE"));
-            }
-        }));
+                if (killedEntity instanceof ServerPlayer) {
+                    System.out.println(damageSource.getEntity());
+                    if (damageSource.getEntity() instanceof ServerPlayer player) {
+                        Database.addPoints(player.getUUID().toString(), player.getName().getString(), 100000000);
+                        player.sendSystemMessage(Component.literal("YOYOYO DU GEILER WICHS BROKEN DAS WAR EPPPPPIC HIER SIND 100000000 PUUIUUUUUNKTEEEEEEEEE"));
+                    }
 
+                }
+        }));
     }
 }

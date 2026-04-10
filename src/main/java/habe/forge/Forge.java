@@ -19,6 +19,7 @@ public class Forge implements ModInitializer {
         Database.connect();
         ModItems.initialize();
         ModCommands.initialize();
+        ModEvents.initialize();
         LOGGER.info("[FORGE] Reingeladen! c:");
 
         ServerLifecycleEvents.SERVER_STOPPING.register(server -> Database.disconnect());

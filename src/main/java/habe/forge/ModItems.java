@@ -17,18 +17,16 @@ import java.util.List;
 
 public class ModItems {
 
-
-
     private static ItemStack createCustomItem(
             Item baseItem,
             String name,
             String lore,
-            int modelData,
+            String modelPath,
             net.minecraft.core.Holder<net.minecraft.world.entity.ai.attributes.Attribute> attribute,
             String modifierKey,
             double modifierValue
     ) {
-        ItemStack stack =new ItemStack(baseItem);
+        ItemStack stack = new ItemStack(baseItem);
 
         stack.set(DataComponents.CUSTOM_NAME,
                 Component.literal(name).withStyle(s -> s.withItalic(false)));
@@ -38,7 +36,6 @@ public class ModItems {
 
         CompoundTag tag = new CompoundTag();
         tag.putBoolean("stonebreaker", true);
-        tag.putInt("CustomModelData", 101);
         stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
 
         stack.set(DataComponents.ITEM_MODEL, Identifier.fromNamespaceAndPath("forge", modelPath));
@@ -58,35 +55,67 @@ public class ModItems {
 
     //display
 
-    //swords
-
-    public static ItemStack createDisplayResonator() {
-        return createCustomItem(Items.NETHERITE_SWORD, "Resonator",
-                "Eine AOE Shockwave alle 3 Hits und natürlich mehr Damage Points9999",100, Attributes.ATTACK_DAMAGE, "resonator_damage", 1.0);
+    //INFO
+    public static ItemStack createDisplayInfo() {
+        return createCustomItem(Items.COMPASS, "INFO",
+                "Jedes stück Gear hat auch die abilitys auch zusätzlich von den vorhärigen gear", "info", Attributes.LUCK, "info_literally_nothing", 1.0);
     }
 
+    //swords
+    public static ItemStack createDisplayResonator() {
+        return createCustomItem(Items.NETHERITE_SWORD, "Resonator",
+                "Eine AOE Shockwave alle 3 Hits und natürlich mehr Damage Points (DISPLAY)", "resonator", Attributes.ATTACK_DAMAGE, "resonator_damage", 1.0);
+    }
 
+    public static ItemStack createDisplayFuryFang() {
+        return createCustomItem(Items.NETHERITE_SWORD, "Fury Fang",
+                "Rage Mode: Unter 50% HP +15% attack speed +3 Damage (DISPLAY)", "furyfang", Attributes.ATTACK_DAMAGE, "furyfang_damage", 1.5);
+    }
+
+    public static ItemStack createDisplayEclipse() {
+        return createCustomItem(Items.NETHERITE_SWORD, "Eclipse",
+                "ULTRA DAMAGE, chance das ein blitz spawnt, lifesteal, 5% chance auf double damage (crit) (DISPLAY)", "eclipse", Attributes.ATTACK_DAMAGE, "eclipse_damage", 1.5);
+    }
+
+    //pickaxes
+
+    public static ItemStack createDisplayStoneBreaker() {
+        return createCustomItem(Items.NETHERITE_PICKAXE, "Stone Breaker",
+                "Veinminer & 3x3 Radius und natürlich schneller abbauen (/veinminertoggle) (DISPLAY)", "stonebreaker", Attributes.BLOCK_BREAK_SPEED, "stonebreaker_speed", 1.0);
+    }
+
+    public static ItemStack createDisplayEarthShard() {
+        return createCustomItem(Items.NETHERITE_PICKAXE, "Earth Shard",
+                "Veinminer & 5x5 Radius und natürlich noch schneller abbauen (/veinminertoggle) (DISPLAY)", "earthshard", Attributes.BLOCK_BREAK_SPEED, "earthshard_speed", 1.5);
+    }
 
     //ingame
 
     //swords
     public static ItemStack createResonator() {
         return createCustomItem(Items.NETHERITE_SWORD, "Resonator",
-                "Eine AOE Shockwave alle 3 Hits und natürlich mehr Damage",100, Attributes.ATTACK_DAMAGE, "resonator_damage", 1.0);
+                "Eine AOE Shockwave alle 3 Hits und natürlich mehr Damage", "resonator", Attributes.ATTACK_DAMAGE, "resonator_damage", 1.0);
     }
 
+    public static ItemStack createFuryFang() {
+        return createCustomItem(Items.NETHERITE_SWORD, "Fury Fang",
+                "Rage Mode: Unter 50% HP +15% attack speed +3 Damage", "furyfang", Attributes.ATTACK_DAMAGE, "furyfang_damage", 1.5);
+    }
 
+    public static ItemStack createEclipse() {
+        return createCustomItem(Items.NETHERITE_SWORD, "Eclipse",
+                "ULTRA DAMAGE, chance das ein blitz spawnt, lifesteal, 5% chance auf double damage (crit)", "eclipse", Attributes.ATTACK_DAMAGE, "eclipse_damage", 1.5);
+    }
 
     //pickaxes
     public static ItemStack createStoneBreaker() {
         return createCustomItem(Items.NETHERITE_PICKAXE, "Stone Breaker",
-                "Veinminer & 3x3 Radius und natürlich schneller abbauen (/veinminertoggle)",103, Attributes.BLOCK_BREAK_SPEED, "stonebreaker_speed", 1.0);
+                "Veinminer & 3x3 Radius und natürlich schneller abbauen (/veinminertoggle)", "stonebreaker", Attributes.BLOCK_BREAK_SPEED, "stonebreaker_speed", 1.0);
     }
-
 
     public static ItemStack createEarthShard() {
         return createCustomItem(Items.NETHERITE_PICKAXE, "Earth Shard",
-                "Veinminer & 5x5 Radius und natürlich noch schneller abbauen (/veinminertoggle)",104, Attributes.BLOCK_BREAK_SPEED, "earthshard_speed", 1.5);
+                "Veinminer & 5x5 Radius und natürlich noch schneller abbauen (/veinminertoggle)", "earthshard", Attributes.BLOCK_BREAK_SPEED, "earthshard_speed", 1.5);
     }
 
     public static void initialize() {}

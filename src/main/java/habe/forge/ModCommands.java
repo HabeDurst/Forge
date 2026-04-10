@@ -30,10 +30,16 @@ public class ModCommands {
             registerCommand(dispatcher, "shop", player -> ModScreenHandler.openPointsShop(player));
             registerCommand(dispatcher, "points", player -> {
                 int points = Database.getPoints(player.getUUID().toString());
-                player.sendSystemMessage(Component.literal("§6Du hast§e " + points + " §6Punkte!!???!!?!?!?!?!?!!!!???!!!??????!!!?!?)"));});
+                player.sendSystemMessage(Component.literal("§6Du hast§e " + points + " §6Juli Points™"));});
             //registerCommand(dispatcher, "addpoints");
             //registerCommand(dispatcher, "removepoints");
+
+            //swords
             registerCommand(dispatcher, "giveresonator", player -> player.getInventory().add(ModItems.createResonator()));
+            registerCommand(dispatcher, "givefuryfang", player -> player.getInventory().add(ModItems.createFuryFang()));
+            registerCommand(dispatcher, "giveeclipse", player -> player.getInventory().add(ModItems.createEclipse()));
+
+            //pickaxes
             registerCommand(dispatcher, "givestonebreaker", player -> player.getInventory().add(ModItems.createStoneBreaker()));
             registerCommand(dispatcher, "giveearthshard", player -> player.getInventory().add(ModItems.createEarthShard()));
         });

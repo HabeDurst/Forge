@@ -8,7 +8,7 @@ public class Database {
 
     private static final String HOST = "localhost";
     private static final int PORT = 3306;
-    private static final String DATABASE = "FORGE";
+    private static final String DATABASE = "forge";
     private static final String USER = "root";
     private static final String PASSWORD = "1234";
 
@@ -74,7 +74,7 @@ public class Database {
 
     public static void addPoints(String uuid, String name, int amount) {
         int current = getPoints(uuid);
-        setPoints(uuid, name, Math.max(0, current - amount));
+        setPoints(uuid, name, Math.max(0, current + amount));
     }
 
     public static void removePoints(String uuid, String name, int amount) {
